@@ -1,0 +1,33 @@
+/*
+ * scheduler.c
+ *
+ *  Created on: Nov 29, 2023
+ *      Author: ACER
+ */
+
+#include "scheduler.h"
+
+void SCH_Init(void)
+{
+
+}
+
+void SCH_Update(void)
+{
+
+}
+
+void SCH_Dispatch_Tasks(void)
+{
+
+}
+
+uint32_t SCH_Add_Tasks(void (* pFunction)(), uint32_t DELAY, uint32_t PERIOD)
+{
+
+}
+
+uint8_t SCH_Delete_Task(uint32_t taskID)
+{
+
+}

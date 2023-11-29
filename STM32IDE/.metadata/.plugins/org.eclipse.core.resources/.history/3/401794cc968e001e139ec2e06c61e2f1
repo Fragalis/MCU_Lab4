@@ -1,0 +1,88 @@
+/*
+ * scheduler.c
+ *
+ *  Created on: Nov 29, 2023
+ *      Author: ACER
+ */
+
+#include "scheduler.h"
+
+typedef struct {
+	// Pointer to the task (must be a ’void(void)’ function )
+	void (* pTask)(void);
+	// Delay (tick) until the function will (next) be run
+	uint32_t Delay;
+	// Interval (tick) between subsequent runs
+	uint32_t Period;
+	// Incremented (by scheduler) when task is due to execute
+	uint8_t RunMe;
+	uint32_t TaskID;
+} sTasks;
+
+sTasks SCH_Tasks_G[SCH_MAX_TASKS];
+unsigned char SCH_Error_G;
+
+void SCH_Init(void)
+{
+	unsigned char i;
+	while(i < SCH_MAX_TASKS) {
+		SCH_Delete_Task(i++);
+	}
+	SCH_Error_G = 0;
+}
+
+void SCH_Update(void)
+{
+	uint32_t index;
+	for(index = 0; index < SCH_MAX_TASKS; ++index) {
+		if(SCH_Tasks_G[index]) {
+			if(SCH_Tasks_G[index].Delay == 0)
+			{
+				++ SCH_Tasks_G[index].RunMe;
+				if(SCH_Tasks_G[index].Period) {
+					SCH_Tasks_G[index].Delay = SCH_Tasks_G[index].Period);
+				}
+			}
+			else
+			{
+				-- SCH_Tasks_G[index].Delay;
+			}
+		}
+	}
+}
+
+void SCH_Dispatch_Tasks(void)
+{
+	uint32_t index;
+	for(index = 0; index < SCH_MAX_TASKS; ++index) {
+		if(SCH_Tasks_G[index].RunMe > 0) {
+			(*SCH_Tasks_G[index].pTask)();
+			-- SCH_Tasks_G[index].RunMe;
+			if(SCH_Tasks_G[index].Period == 0) {
+				SCH_Delete_Task(index);
+			}
+		}
+	}
+}
+
+uint32_t SCH_Add_Tasks(void (* pFunction)(), uint32_t DELAY, uint32_t PERIOD)
+{
+	uint32_t index;
+	while((SCH_Tasks_G[Index].pTask != 0 ) && (index < SCH_MAX_TASKS)) {
+		++ index;
+	}
+	if(index == SCH_MAX_TASKS) {
+		SCH_Error_G = ERROR_SCH_TOO_MANY_TASKS;
+		return SCH_MAX_TASKS;
+	}
+	SCH_Tasks_G[index].pTask = pFunction;
+	SCH_Tasks_G[index].Delay = DELAY;
+	SCH_Tasks_G[index].Period = PERIOD;
+	SCH_Tasks_G[index].RunMe = 0;
+	return index;
+}
+
+uint8_t SCH_Delete_Task(uint32_t taskID)
+{
+
+}

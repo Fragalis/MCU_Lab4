@@ -1,0 +1,24 @@
+/*
+ * global.h
+ *
+ *  Created on: Nov 29, 2023
+ *      Author: ACER
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#include "main.h"
+
+#define SCH_MAX_TASKS 										40
+#define NO_TASK_ID											0
+
+#define ERROR_SCH_TOO_MANY_TASKS							1000
+#define ERROR_SCH_WAITING_FOR_SLAVE_TO_ACK					1001
+#define ERROR_SCH_WAITING_FOR_START_COMMAND_FROM_MASTER		1002
+#define ERROR_SCH_ONE_OR_MORE_SLAVES_DID_NOT_START			1003
+#define ERROR_SCH_LOST_SLAVE								1004
+#define ERROR_SCH_CAN_BUS_ERROR								1005
+#define ERROR_I2C_WRITE_BYTE_AT24C64						1006
+
+#endif /* INC_GLOBAL_H_ */

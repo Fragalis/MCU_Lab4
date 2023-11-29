@@ -1,0 +1,19 @@
+/*
+ * global.h
+ *
+ *  Created on: Nov 29, 2023
+ *      Author: ACER
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+#include "main.h"
+
+#define SCH_MAX_TASKS 										40
+#define NO_TASK_ID											0
+
+#define ERROR_SCH_TOO_MANY_TASKS							1000
+#define ERROR_SCH_TASK_NOT_FOUND							1001
+
+#endif /* INC_GLOBAL_H_ */
