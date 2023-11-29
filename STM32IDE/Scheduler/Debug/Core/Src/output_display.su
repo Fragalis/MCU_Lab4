@@ -1,1 +1,5 @@
-output_display.c:11:6:Led_Display	8	static
+output_display.c:11:6:Led_Red_Blinky	8	static
+output_display.c:14:6:Led_Yellow_Blinky	8	static
+output_display.c:17:6:Led_Green_Blinky	8	static
+output_display.c:20:6:Left_7SEG_Blinky	8	static
+output_display.c:24:6:Right_7SEG_Blinky	8	static

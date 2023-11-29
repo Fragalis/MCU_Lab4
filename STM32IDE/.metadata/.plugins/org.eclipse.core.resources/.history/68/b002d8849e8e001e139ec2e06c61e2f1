@@ -1,0 +1,20 @@
+/*
+ * output_display.c
+ *
+ *  Created on: Nov 29, 2023
+ *      Author: ACER
+ */
+
+
+#include "output_display.h"
+
+void Led_Red_Blinky(void) {
+	HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
+}
+
+void Led_Yellow_Blinky(void) {
+
+}
+void Led_Green_Blinky(void);
+void Left_7SEG_Blinky(void);
+void Right_7SEG_Blinky(void);

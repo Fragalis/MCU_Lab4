@@ -746,3 +746,74 @@
 2023-11-29 16:16:17,935 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 3605mS.
 2023-11-29 16:16:17,936 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
 2023-11-29 16:16:17,939 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2023-11-29 16:26:41,715 [INFO] NvicIntPanel:96 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,520x268,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2023-11-29 17:01:18,182 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 835920056 Bytes (1073741824)
+2023-11-29 17:01:19,980 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 853889408 Bytes (1073741824)
+2023-11-29 17:01:23,879 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 862227400 Bytes (1073741824)
+2023-11-29 17:01:24,180 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2023-11-29 17:01:24,180 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2023-11-29 17:01:24,180 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2023-11-29 17:01:24,181 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2023-11-29 17:01:24,181 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F1
+2023-11-29 17:01:24,182 [INFO] CodeGenerator:663 - code generatio: config db path: D:\STMCubeIDE\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2023-11-29 17:01:24,575 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\MXTmpFiles\license.tmp_save
+2023-11-29 17:01:24,710 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\MXTmpFiles\license.tmp
+2023-11-29 17:01:24,733 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\MXTmpFiles\gpio.tmp_save
+2023-11-29 17:01:24,816 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\MXTmpFiles\gpio.tmp
+2023-11-29 17:01:24,895 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Src\stm32f1xx_it.c_save
+2023-11-29 17:01:25,005 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Src\stm32f1xx_it.c
+2023-11-29 17:01:25,016 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Inc\stm32f1xx_it.h_save
+2023-11-29 17:01:25,087 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Inc\stm32f1xx_it.h
+2023-11-29 17:01:25,107 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Src\stm32f1xx_hal_msp.c_save
+2023-11-29 17:01:25,227 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Src\stm32f1xx_hal_msp.c
+2023-11-29 17:01:25,231 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\MXTmpFiles\system.tmp_save
+2023-11-29 17:01:25,319 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\MXTmpFiles\system.tmp
+2023-11-29 17:01:25,332 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Inc\stm32f1xx_hal_conf.h_save
+2023-11-29 17:01:25,420 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Inc\stm32f1xx_hal_conf.h
+2023-11-29 17:01:25,439 [WARN] IPConfigManager:3148 - IP not found : TIM
+2023-11-29 17:01:25,439 [WARN] CodeGenerator:3268 - IP not found : null
+2023-11-29 17:01:25,452 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Inc\main.h_save
+2023-11-29 17:01:25,547 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Inc\main.h
+2023-11-29 17:01:25,560 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Src\main.c_save
+2023-11-29 17:01:25,680 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Src\main.c
+2023-11-29 17:01:26,754 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 88mS.
+2023-11-29 17:01:26,756 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2023-11-29 17:01:27,750 [INFO] ConfigFileManager:1271 - The Die is : DIE412
+2023-11-29 17:01:29,727 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 2971mS.
+2023-11-29 17:01:29,727 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2023-11-29 17:01:29,729 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2023-11-29 17:04:02,585 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 879280144 Bytes (1073741824)
+2023-11-29 17:04:03,366 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 901300240 Bytes (1073741824)
+2023-11-29 17:04:12,999 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 895901168 Bytes (1073741824)
+2023-11-29 17:04:13,355 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2023-11-29 17:04:13,355 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2023-11-29 17:04:13,355 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2023-11-29 17:04:13,355 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2023-11-29 17:04:13,355 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F1
+2023-11-29 17:04:13,356 [INFO] CodeGenerator:663 - code generatio: config db path: D:\STMCubeIDE\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2023-11-29 17:04:13,740 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\MXTmpFiles\license.tmp_save
+2023-11-29 17:04:13,799 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\MXTmpFiles\license.tmp
+2023-11-29 17:04:13,829 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\MXTmpFiles\gpio.tmp_save
+2023-11-29 17:04:13,902 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\MXTmpFiles\gpio.tmp
+2023-11-29 17:04:13,994 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Src\stm32f1xx_it.c_save
+2023-11-29 17:04:14,081 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Src\stm32f1xx_it.c
+2023-11-29 17:04:14,084 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Inc\stm32f1xx_it.h_save
+2023-11-29 17:04:14,139 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Inc\stm32f1xx_it.h
+2023-11-29 17:04:14,153 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Src\stm32f1xx_hal_msp.c_save
+2023-11-29 17:04:14,240 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Src\stm32f1xx_hal_msp.c
+2023-11-29 17:04:14,242 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\MXTmpFiles\system.tmp_save
+2023-11-29 17:04:14,291 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\MXTmpFiles\system.tmp
+2023-11-29 17:04:14,303 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Inc\stm32f1xx_hal_conf.h_save
+2023-11-29 17:04:14,404 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Inc\stm32f1xx_hal_conf.h
+2023-11-29 17:04:14,423 [WARN] IPConfigManager:3148 - IP not found : TIM
+2023-11-29 17:04:14,423 [WARN] CodeGenerator:3268 - IP not found : null
+2023-11-29 17:04:14,436 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Inc\main.h_save
+2023-11-29 17:04:14,519 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Inc\main.h
+2023-11-29 17:04:14,530 [INFO] CodeEngine:239 - oldGeneratedFile, D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Src\main.c_save
+2023-11-29 17:04:14,666 [INFO] CodeEngine:257 - Generated code: D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\Core\Src\main.c
+2023-11-29 17:04:15,575 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 61mS.
+2023-11-29 17:04:15,578 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2023-11-29 17:04:16,563 [INFO] ConfigFileManager:1271 - The Die is : DIE412
+2023-11-29 17:04:18,594 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 3016mS.
+2023-11-29 17:04:18,595 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 1mS.
+2023-11-29 17:04:18,596 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
