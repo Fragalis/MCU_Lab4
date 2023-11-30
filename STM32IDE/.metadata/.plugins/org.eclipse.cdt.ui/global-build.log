@@ -340,3 +340,231 @@ Finished building: Scheduler.bin
 Finished building: Scheduler.list
  
  
+14:06:07 **** Incremental Build of configuration Debug for project Scheduler ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/global.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/global.d" -MT"Core/Src/global.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/global.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/scheduler.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/scheduler.d" -MT"Core/Src/scheduler.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/scheduler.o"
+arm-none-eabi-gcc "../Core/Src/timer.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/timer.d" -MT"Core/Src/timer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/timer.o"
+../Core/Src/scheduler.c: In function 'SCH_Dispatch_Tasks':
+../Core/Src/scheduler.c:54:3: error: unknown type name 'sTask'; did you mean 'sTasks'?
+   54 |   sTask temptask = SCH_Tasks_G[0];
+      |   ^~~~~
+      |   sTasks
+../Core/Src/scheduler.c:54:20: error: incompatible types when initializing type 'int' using type 'sTasks' {aka 'struct <anonymous>'}
+   54 |   sTask temptask = SCH_Tasks_G[0];
+      |                    ^~~~~~~~~~~
+../Core/Src/scheduler.c:55:27: error: request for member 'TaskID' in something not a structure or union
+   55 |   SCH_Delete_Task(temptask.TaskID);
+      |                           ^
+../Core/Src/scheduler.c:56:15: error: request for member 'Period' in something not a structure or union
+   56 |   if (temptask.Period != 0) {
+      |               ^
+../Core/Src/scheduler.c:57:4: warning: implicit declaration of function 'SCH_Add_Task'; did you mean 'SCH_Add_Tasks'? [-Wimplicit-function-declaration]
+   57 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |    ^~~~~~~~~~~~
+      |    SCH_Add_Tasks
+../Core/Src/scheduler.c:57:25: error: request for member 'pTask' in something not a structure or union
+   57 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |                         ^
+../Core/Src/scheduler.c:57:41: error: request for member 'Period' in something not a structure or union
+   57 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |                                         ^
+../Core/Src/scheduler.c:57:58: error: request for member 'Period' in something not a structure or union
+   57 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |                                                          ^
+../Core/Src/scheduler.c:54:9: warning: variable 'temptask' set but not used [-Wunused-but-set-variable]
+   54 |   sTask temptask = SCH_Tasks_G[0];
+      |         ^~~~~~~~
+../Core/Src/scheduler.c: At top level:
+../Core/Src/scheduler.c:62:10: error: conflicting types for 'SCH_Add_Task'
+   62 | uint32_t SCH_Add_Task(void (* pFunction)(), uint32_t DELAY, uint32_t PERIOD)
+      |          ^~~~~~~~~~~~
+../Core/Src/scheduler.c:57:4: note: previous implicit declaration of 'SCH_Add_Task' was here
+   57 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |    ^~~~~~~~~~~~
+../Core/Src/scheduler.c: In function 'SCH_Add_Task':
+../Core/Src/scheduler.c:90:39: warning: implicit declaration of function 'Get_New_Task_ID' [-Wimplicit-function-declaration]
+   90 |    SCH_Tasks_G[newTaskIndex].TaskID = Get_New_Task_ID();
+      |                                       ^~~~~~~~~~~~~~~
+../Core/Src/scheduler.c: In function 'SCH_Delete_Task':
+../Core/Src/scheduler.c:116:62: error: 'SCH_tasks_G' undeclared (first use in this function); did you mean 'SCH_Tasks_G'?
+  116 |     if((taskIndex != 0 && taskIndex < SCH_MAX_TASKS - 1) && (SCH_tasks_G[taskIndex+1].pTask != 0x0000)){
+      |                                                              ^~~~~~~~~~~
+      |                                                              SCH_Tasks_G
+../Core/Src/scheduler.c:116:62: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/scheduler.c: At top level:
+../Core/Src/scheduler.c:139:17: error: conflicting types for 'Get_New_Task_ID'
+  139 | static uint32_t Get_New_Task_ID(void){
+      |                 ^~~~~~~~~~~~~~~
+../Core/Src/scheduler.c:90:39: note: previous implicit declaration of 'Get_New_Task_ID' was here
+   90 |    SCH_Tasks_G[newTaskIndex].TaskID = Get_New_Task_ID();
+      |                                       ^~~~~~~~~~~~~~~
+../Core/Src/scheduler.c:139:17: warning: 'Get_New_Task_ID' defined but not used [-Wunused-function]
+  139 | static uint32_t Get_New_Task_ID(void){
+      |                 ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/scheduler.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:06:31 **** Incremental Build of configuration Debug for project Scheduler ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/scheduler.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/scheduler.d" -MT"Core/Src/scheduler.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/scheduler.o"
+../Core/Src/scheduler.c: In function 'SCH_Dispatch_Tasks':
+../Core/Src/scheduler.c:55:3: error: unknown type name 'sTask'; did you mean 'sTasks'?
+   55 |   sTask temptask = SCH_Tasks_G[0];
+      |   ^~~~~
+      |   sTasks
+../Core/Src/scheduler.c:55:20: error: incompatible types when initializing type 'int' using type 'sTasks' {aka 'struct <anonymous>'}
+   55 |   sTask temptask = SCH_Tasks_G[0];
+      |                    ^~~~~~~~~~~
+../Core/Src/scheduler.c:56:27: error: request for member 'TaskID' in something not a structure or union
+   56 |   SCH_Delete_Task(temptask.TaskID);
+      |                           ^
+../Core/Src/scheduler.c:57:15: error: request for member 'Period' in something not a structure or union
+   57 |   if (temptask.Period != 0) {
+      |               ^
+../Core/Src/scheduler.c:58:4: warning: implicit declaration of function 'SCH_Add_Task'; did you mean 'SCH_Add_Tasks'? [-Wimplicit-function-declaration]
+   58 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |    ^~~~~~~~~~~~
+      |    SCH_Add_Tasks
+../Core/Src/scheduler.c:58:25: error: request for member 'pTask' in something not a structure or union
+   58 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |                         ^
+../Core/Src/scheduler.c:58:41: error: request for member 'Period' in something not a structure or union
+   58 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |                                         ^
+../Core/Src/scheduler.c:58:58: error: request for member 'Period' in something not a structure or union
+   58 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |                                                          ^
+../Core/Src/scheduler.c:55:9: warning: variable 'temptask' set but not used [-Wunused-but-set-variable]
+   55 |   sTask temptask = SCH_Tasks_G[0];
+      |         ^~~~~~~~
+../Core/Src/scheduler.c: At top level:
+../Core/Src/scheduler.c:63:10: error: conflicting types for 'SCH_Add_Task'
+   63 | uint32_t SCH_Add_Task(void (* pFunction)(), uint32_t DELAY, uint32_t PERIOD)
+      |          ^~~~~~~~~~~~
+../Core/Src/scheduler.c:58:4: note: previous implicit declaration of 'SCH_Add_Task' was here
+   58 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |    ^~~~~~~~~~~~
+../Core/Src/scheduler.c: In function 'SCH_Delete_Task':
+../Core/Src/scheduler.c:117:62: error: 'SCH_tasks_G' undeclared (first use in this function); did you mean 'SCH_Tasks_G'?
+  117 |     if((taskIndex != 0 && taskIndex < SCH_MAX_TASKS - 1) && (SCH_tasks_G[taskIndex+1].pTask != 0x0000)){
+      |                                                              ^~~~~~~~~~~
+      |                                                              SCH_Tasks_G
+../Core/Src/scheduler.c:117:62: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:46: Core/Src/scheduler.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:06:49 **** Incremental Build of configuration Debug for project Scheduler ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/scheduler.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/scheduler.d" -MT"Core/Src/scheduler.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/scheduler.o"
+../Core/Src/scheduler.c: In function 'SCH_Dispatch_Tasks':
+../Core/Src/scheduler.c:55:3: error: unknown type name 'sTask'; did you mean 'sTasks'?
+   55 |   sTask temptask = SCH_Tasks_G[0];
+      |   ^~~~~
+      |   sTasks
+../Core/Src/scheduler.c:55:20: error: incompatible types when initializing type 'int' using type 'sTasks' {aka 'struct <anonymous>'}
+   55 |   sTask temptask = SCH_Tasks_G[0];
+      |                    ^~~~~~~~~~~
+../Core/Src/scheduler.c:56:27: error: request for member 'TaskID' in something not a structure or union
+   56 |   SCH_Delete_Task(temptask.TaskID);
+      |                           ^
+../Core/Src/scheduler.c:57:15: error: request for member 'Period' in something not a structure or union
+   57 |   if (temptask.Period != 0) {
+      |               ^
+../Core/Src/scheduler.c:58:4: warning: implicit declaration of function 'SCH_Add_Task'; did you mean 'SCH_Add_Tasks'? [-Wimplicit-function-declaration]
+   58 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |    ^~~~~~~~~~~~
+      |    SCH_Add_Tasks
+../Core/Src/scheduler.c:58:25: error: request for member 'pTask' in something not a structure or union
+   58 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |                         ^
+../Core/Src/scheduler.c:58:41: error: request for member 'Period' in something not a structure or union
+   58 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |                                         ^
+../Core/Src/scheduler.c:58:58: error: request for member 'Period' in something not a structure or union
+   58 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |                                                          ^
+../Core/Src/scheduler.c:55:9: warning: variable 'temptask' set but not used [-Wunused-but-set-variable]
+   55 |   sTask temptask = SCH_Tasks_G[0];
+      |         ^~~~~~~~
+../Core/Src/scheduler.c: At top level:
+../Core/Src/scheduler.c:63:10: error: conflicting types for 'SCH_Add_Task'
+   63 | uint32_t SCH_Add_Task(void (* pFunction)(), uint32_t DELAY, uint32_t PERIOD)
+      |          ^~~~~~~~~~~~
+../Core/Src/scheduler.c:58:4: note: previous implicit declaration of 'SCH_Add_Task' was here
+   58 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |    ^~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/scheduler.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:07:28 **** Incremental Build of configuration Debug for project Scheduler ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/scheduler.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/scheduler.d" -MT"Core/Src/scheduler.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/scheduler.o"
+arm-none-eabi-gcc "../Core/Src/timer.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/timer.d" -MT"Core/Src/timer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/timer.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:99:3: warning: implicit declaration of function 'SCH_Add_Tasks'; did you mean 'SCH_Add_Task'? [-Wimplicit-function-declaration]
+   99 |   SCH_Add_Tasks(Led_Red_Blinky, 0, 50);
+      |   ^~~~~~~~~~~~~
+      |   SCH_Add_Task
+../Core/Src/scheduler.c: In function 'SCH_Dispatch_Tasks':
+../Core/Src/scheduler.c:62:3: error: unknown type name 'sTask'; did you mean 'sTasks'?
+   62 |   sTask temptask = SCH_Tasks_G[0];
+      |   ^~~~~
+      |   sTasks
+../Core/Src/scheduler.c:62:20: error: incompatible types when initializing type 'int' using type 'sTasks' {aka 'struct <anonymous>'}
+   62 |   sTask temptask = SCH_Tasks_G[0];
+      |                    ^~~~~~~~~~~
+../Core/Src/scheduler.c:63:27: error: request for member 'TaskID' in something not a structure or union
+   63 |   SCH_Delete_Task(temptask.TaskID);
+      |                           ^
+../Core/Src/scheduler.c:64:15: error: request for member 'Period' in something not a structure or union
+   64 |   if (temptask.Period != 0) {
+      |               ^
+../Core/Src/scheduler.c:65:25: error: request for member 'pTask' in something not a structure or union
+   65 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |                         ^
+../Core/Src/scheduler.c:65:41: error: request for member 'Period' in something not a structure or union
+   65 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |                                         ^
+../Core/Src/scheduler.c:65:58: error: request for member 'Period' in something not a structure or union
+   65 |    SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
+      |                                                          ^
+../Core/Src/scheduler.c:62:9: warning: variable 'temptask' set but not used [-Wunused-but-set-variable]
+   62 |   sTask temptask = SCH_Tasks_G[0];
+      |         ^~~~~~~~
+make: *** [Core/Src/subdir.mk:46: Core/Src/scheduler.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:08:02 **** Incremental Build of configuration Debug for project Scheduler ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/scheduler.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/scheduler.d" -MT"Core/Src/scheduler.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/scheduler.o"
+arm-none-eabi-gcc -o "Scheduler.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+d:\stmcubeide\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: ./Core/Src/main.o: in function `main':
+D:/MCU_Lab/MCU_Lab4/STM32IDE/Scheduler/Debug/../Core/Src/main.c:99: undefined reference to `SCH_Add_Tasks'
+d:\stmcubeide\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: D:/MCU_Lab/MCU_Lab4/STM32IDE/Scheduler/Debug/../Core/Src/main.c:100: undefined reference to `SCH_Add_Tasks'
+d:\stmcubeide\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: D:/MCU_Lab/MCU_Lab4/STM32IDE/Scheduler/Debug/../Core/Src/main.c:101: undefined reference to `SCH_Add_Tasks'
+d:\stmcubeide\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: D:/MCU_Lab/MCU_Lab4/STM32IDE/Scheduler/Debug/../Core/Src/main.c:102: undefined reference to `SCH_Add_Tasks'
+d:\stmcubeide\stm32cubeide_1.7.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346\tools\arm-none-eabi\bin\ld.exe: D:/MCU_Lab/MCU_Lab4/STM32IDE/Scheduler/Debug/../Core/Src/main.c:103: undefined reference to `SCH_Add_Tasks'
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:68: Scheduler.elf] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+14:08:21 **** Incremental Build of configuration Debug for project Scheduler ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "Scheduler.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\MCU_Lab\MCU_Lab4\STM32IDE\Scheduler\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Scheduler.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Scheduler.elf
+ 
+arm-none-eabi-size   Scheduler.elf 
+arm-none-eabi-objdump -h -S  Scheduler.elf  > "Scheduler.list"
+arm-none-eabi-objcopy  -O ihex  Scheduler.elf  "Scheduler.hex"
+arm-none-eabi-objcopy  -O binary  Scheduler.elf  "Scheduler.bin"
+   text	   data	    bss	    dec	    hex	filename
+   8620	     20	   2452	  11092	   2b54	Scheduler.elf
+Finished building: default.size.stdout
+ 
+Finished building: Scheduler.hex
+Finished building: Scheduler.bin
+ 
+Finished building: Scheduler.list
+ 
+ 

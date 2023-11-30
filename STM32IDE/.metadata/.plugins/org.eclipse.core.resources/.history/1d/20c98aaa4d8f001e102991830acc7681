@@ -11,8 +11,8 @@
 #include "main.h"
 
 #define SCH_MAX_TASKS 				40
-#define NO_TASK_ID	 				0
 
+#define ERROR_NO_TASK_ID			0
 #define ERROR_SCH_TOO_MANY_TASKS	10
 #define ERROR_SCH_TASK_NOT_FOUND	11
 

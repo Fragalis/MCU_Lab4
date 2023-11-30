@@ -17,9 +17,9 @@ typedef struct {
 	// Incremented (by scheduler) when task is due to execute
 	uint8_t RunMe;
 	uint32_t TaskID;
-} sTask;
+} sTasks;
 
-sTask SCH_Tasks_G[SCH_MAX_TASKS];
+sTasks SCH_Tasks_G[SCH_MAX_TASKS];
 static uint32_t newTaskID = 0;
 static uint32_t SCH_Update_Count = 0;
 unsigned char SCH_Error_G;

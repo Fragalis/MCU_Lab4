@@ -17,20 +17,12 @@ typedef struct {
 	// Incremented (by scheduler) when task is due to execute
 	uint8_t RunMe;
 	uint32_t TaskID;
-} sTask;
+} sTasks;
 
-sTask SCH_Tasks_G[SCH_MAX_TASKS];
+sTasks SCH_Tasks_G[SCH_MAX_TASKS];
 static uint32_t newTaskID = 0;
 static uint32_t SCH_Update_Count = 0;
 unsigned char SCH_Error_G;
-
-static uint32_t Get_New_Task_ID(void){
-	newTaskID++;
-	if(newTaskID == NO_TASK_ID){
-		newTaskID++;
-	}
-	return newTaskID;
-}
 
 void SCH_Init(void)
 {
@@ -44,12 +36,20 @@ void SCH_Init(void)
 void SCH_Update(void)
 {
 	++ SCH_Update_Count;
-	if (SCH_Tasks_G[0].pTask && SCH_Tasks_G[0].RunMe == 0) {
-		if(SCH_Tasks_G[0].Delay > 0){
-			SCH_Tasks_G[0].Delay = SCH_Tasks_G[0].Delay - 1;
+	uint32_t Index;
+	for(Index = 0; Index < SCH_MAX_TASKS; ++Index) {
+		if(SCH_Tasks_G[Index].pTask == 0x0000) continue;
+
+		if(SCH_Tasks_G[Index].Delay == 0)
+		{
+			++ SCH_Tasks_G[Index].RunMe;
+			if(SCH_Tasks_G[Index].Period) {
+				SCH_Tasks_G[Index].Delay = SCH_Tasks_G[Index].Period;
+			}
 		}
-		if (SCH_Tasks_G[0].Delay == 0) {
-			SCH_Tasks_G[0].RunMe = 1;
+		else
+		{
+			-- SCH_Tasks_G[Index].Delay;
 		}
 	}
 }
@@ -121,7 +121,7 @@ uint8_t SCH_Delete_Task(uint32_t taskID){
 		for(uint8_t taskIndex = 0; taskIndex < SCH_MAX_TASKS; taskIndex ++){
 			if(SCH_Tasks_G[taskIndex].TaskID == taskID){
 				Return_code = 1;
-				if((taskIndex != 0 && taskIndex < SCH_MAX_TASKS - 1) && (SCH_Tasks_G[taskIndex+1].pTask != 0x0000)){
+				if((taskIndex != 0 && taskIndex < SCH_MAX_TASKS - 1) && (SCH_tasks_G[taskIndex+1].pTask != 0x0000)){
 						SCH_Tasks_G[taskIndex+1].Delay += SCH_Tasks_G[taskIndex].Delay;
 				}
 				uint8_t j;
@@ -142,4 +142,12 @@ uint8_t SCH_Delete_Task(uint32_t taskID){
 		}
 	}
 	return Return_code; // return status
+}
+
+static uint32_t Get_New_Task_ID(void){
+	newTaskID++;
+	if(newTaskID == NO_TASK_ID){
+		newTaskID++;
+	}
+	return newTaskID;
 }
