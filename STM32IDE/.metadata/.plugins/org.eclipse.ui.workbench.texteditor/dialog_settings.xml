@@ -6,14 +6,16 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="YELLOW"/>
+		<item key="selection" value="Tasks_"/>
 		<list key="findhistory">
+			<item value="tasks_"/>
 			<item value="RED"/>
 			<item value="index"/>
 			<item value="• Error_code_G ="/>
 			<item value="• Error_code_G = ERROR_SCH_TOO_MANY_TASKS;"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Tasks_"/>
 			<item value="YELLOW"/>
 			<item value="GREEN"/>
 			<item value="Index"/>

@@ -103,9 +103,10 @@ uint32_t SCH_Add_Task(void (* pFunction)(), uint32_t DELAY, uint32_t PERIOD)
 				SCH_Tasks_G[newTaskIndex].pTask = pFunction;
 				SCH_Tasks_G[newTaskIndex].Delay = DELAY - sumDelay;
 				SCH_Tasks_G[newTaskIndex].Period = PERIOD;
-				SCH_Tasks_G[newTaskIndex].RunMe = 0;
 				if(SCH_Tasks_G[newTaskIndex].Delay == 0){
 					SCH_Tasks_G[newTaskIndex].RunMe = 1;
+				} else {
+					SCH_Tasks_G[newTaskIndex].RunMe = 0;
 				}
 				SCH_Tasks_G[newTaskIndex].TaskID = Get_New_Task_ID();
 				return SCH_Tasks_G[newTaskIndex].TaskID;

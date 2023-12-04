@@ -18,7 +18,7 @@
 #define ERROR_SCH_TOO_MANY_TASKS	10
 #define ERROR_SCH_TASK_NOT_FOUND	11
 
-#define RETURN_NORMAL				1
-#define RETURN_ERROR				0
+#define RETURN_NORMAL				100
+#define RETURN_ERROR				101
 
 #endif /* INC_GLOBAL_H_ */
