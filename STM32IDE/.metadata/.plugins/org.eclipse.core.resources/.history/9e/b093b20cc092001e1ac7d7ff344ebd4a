@@ -63,7 +63,7 @@ void SCH_Dispatch_Tasks(void)
 		sTask temptask = SCH_Tasks_G[0];
 		SCH_Delete_Task(temptask.TaskID);
 		if (temptask.Period != 0) {
-			SCH_Add_Task(temptask.pTask, temptask.Period / TIMER_CYCLE, temptask.Period);
+			SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
 		}
 	}
 }

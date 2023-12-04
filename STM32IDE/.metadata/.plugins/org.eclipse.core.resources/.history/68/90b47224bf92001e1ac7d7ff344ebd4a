@@ -96,11 +96,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  SCH_Add_Task(Led_Red_Blinky, 10, 500);
-  SCH_Add_Task(Led_Yellow_Blinky, 10, 1000);
-  SCH_Add_Task(Led_Green_Blinky, 10, 1500);
-  SCH_Add_Task(Left_7SEG_Blinky, 10, 2000);
-  SCH_Add_Task(Right_7SEG_Blinky, 10, 2500);
+  SCH_Add_Task(Led_Red_Blinky, 0, 50);
+  SCH_Add_Task(Led_Yellow_Blinky, 0, 100);
+  SCH_Add_Task(Led_Green_Blinky, 0, 150);
+  SCH_Add_Task(Left_7SEG_Blinky, 0, 200);
+  SCH_Add_Task(Right_7SEG_Blinky, 0, 250);
   while (1)
   {
 	  SCH_Dispatch_Tasks();

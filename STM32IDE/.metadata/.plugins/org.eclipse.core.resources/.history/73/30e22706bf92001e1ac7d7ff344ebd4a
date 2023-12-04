@@ -27,7 +27,7 @@ unsigned char SCH_Error_G;
 static uint32_t Get_New_Task_ID(void){
 	newTaskID++;
 	if(newTaskID == NO_TASK_ID){
-		++ newTaskID;
+		newTaskID++;
 	}
 	return newTaskID;
 }
@@ -63,21 +63,22 @@ void SCH_Dispatch_Tasks(void)
 		sTask temptask = SCH_Tasks_G[0];
 		SCH_Delete_Task(temptask.TaskID);
 		if (temptask.Period != 0) {
-			SCH_Add_Task(temptask.pTask, temptask.Period / TIMER_CYCLE, temptask.Period);
+			SCH_Add_Task(temptask.pTask, temptask.Period, temptask.Period);
 		}
 	}
 }
 
 uint32_t SCH_Add_Task(void (* pFunction)(), uint32_t DELAY, uint32_t PERIOD)
 {
+	DELAY = DELAY / TIMER_CYCLE;	// Normalize the DELAY
 	uint8_t newTaskIndex = 0;
 	uint32_t sumDelay = 0;			// Works as a position to insert the task
 	uint32_t newDelay = 0;			// For the adding task
 
-	for(newTaskIndex = 0; newTaskIndex < SCH_MAX_TASKS; ++ newTaskIndex){
+	for(newTaskIndex = 0; newTaskIndex < SCH_MAX_TASKS; newTaskIndex ++){
 		sumDelay = sumDelay + SCH_Tasks_G[newTaskIndex].Delay;
 		
-		if(sumDelay > DELAY)
+		if(sumDelay >= DELAY)
 		{ // We found the place to add the task
 			newDelay = DELAY - (sumDelay - SCH_Tasks_G[newTaskIndex].Delay);
 			SCH_Tasks_G[newTaskIndex].Delay = sumDelay - DELAY;
@@ -86,7 +87,7 @@ uint32_t SCH_Add_Task(void (* pFunction)(), uint32_t DELAY, uint32_t PERIOD)
 			if(SCH_Tasks_G[SCH_MAX_TASKS - 1].pTask != 0x0000) break;
 			
 			// Else, push back the elements
-			for(uint8_t i = SCH_MAX_TASKS - 1; i > newTaskIndex; -- i){
+			for(uint8_t i = SCH_MAX_TASKS - 1; i > newTaskIndex; i --){
 				if(SCH_Tasks_G[i - 1].pTask != 0)
 				{
 					SCH_Tasks_G[i].pTask = SCH_Tasks_G[i - 1].pTask;
@@ -132,14 +133,14 @@ uint32_t SCH_Add_Task(void (* pFunction)(), uint32_t DELAY, uint32_t PERIOD)
 uint8_t SCH_Delete_Task(uint32_t taskID){
 	uint8_t Return_code = RETURN_ERROR;
 	if(taskID != NO_TASK_ID){
-		for(uint8_t taskIndex = 0; taskIndex < SCH_MAX_TASKS; ++ taskIndex){
+		for(uint8_t taskIndex = 0; taskIndex < SCH_MAX_TASKS; taskIndex ++){
 			if(SCH_Tasks_G[taskIndex].TaskID == taskID){
 				Return_code = RETURN_NORMAL;
 				if((taskIndex != 0 && taskIndex < SCH_MAX_TASKS - 1) && (SCH_Tasks_G[taskIndex+1].pTask != 0x0000)){
 						SCH_Tasks_G[taskIndex+1].Delay += SCH_Tasks_G[taskIndex].Delay;
 				}
 				uint8_t j;
-				for(j = taskIndex; j < SCH_MAX_TASKS - 1; ++ j){
+				for(j = taskIndex; j < SCH_MAX_TASKS - 1; j ++){
 					SCH_Tasks_G[j].pTask = SCH_Tasks_G[j+1].pTask;
 					SCH_Tasks_G[j].Period = SCH_Tasks_G[j+1].Period;
 					SCH_Tasks_G[j].Delay = SCH_Tasks_G[j+1].Delay;
